@@ -1,0 +1,23 @@
+body {
+    min-height: 100vh;
+    background-color: rgb(64, 60, 60);
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.auth-area{
+    display:flex;
+    width: 250px;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    border: 2px solid white;
+    gap:20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.white{
+    color:white;
+}

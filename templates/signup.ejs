@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Office</title>
+        <link rel="stylesheet" href="/auth.css">
+    </head>
+
+    <body>
+        <form class="auth-area" action="/signup" method="POST">
+            <h1 class="white">Sign Up</h1>
+
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Username">
+
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Password">
+
+            <label for="email"></label>
+            <input type="text" id="email" name="email" placeholder="Email">
+
+            <button type="submit">Sign Up</button>
+
+            <a href="/login">
+                <button type="button">Already have an account? Log in</button>
+            </a>
+        </form>
+    </body>
+</html>

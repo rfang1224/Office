@@ -1,0 +1,258 @@
+
+/* General page styling */
+body {
+    background-color: rgb(64, 60, 60);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.white {
+    color: white;
+}
+
+/* Home and personal page */
+.post-box {
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 530px;
+    border: 2px solid white;
+    padding: 20px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.post-card {
+    box-sizing: border-box;
+    color: white;
+    background-color: rgb(85, 80, 80);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border: 2px solid white;
+    padding: 20px;
+    gap: 5px;
+    border-radius: 10px;
+}
+
+.post-card p {
+    overflow-wrap: anywhere;
+}
+
+/* Add Post and Personal links */
+.add-post-button {
+    box-sizing: border-box;
+    display: block;
+    width: 530px;
+    padding: 12px 24px;
+    margin-bottom: 10px;
+    background-color: #57068c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-post-button:hover {
+    background-color: #7635a3;
+}
+
+/* Search bar */
+.search-form {
+    width: 530px;
+}
+
+.search-form input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #777;
+    border-radius: 10px;
+    background-color: rgb(85, 80, 80);
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-form input::placeholder {
+    color: #ccc;
+}
+
+.search-form input:focus {
+    border-color: #a66bd1;
+}
+
+/* Add post form */
+.content-box {
+    height: 50px;
+}
+
+.post-box input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #777;
+    border-radius: 6px;
+    background-color: rgb(85, 80, 80);
+    color: white;
+    font-size: 15px;
+}
+
+/* Post details */
+.post-info {
+    box-sizing: border-box;
+    width: 530px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: rgb(85, 80, 80);
+    color: white;
+}
+
+.post-info input,
+.post-info textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #777;
+    border-radius: 6px;
+    background-color: rgb(64, 60, 60);
+    color: white;
+    font-size: 15px;
+}
+
+.post-info textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Reply input */
+.reply-area {
+    box-sizing: border-box;
+    width: 530px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: rgb(85, 80, 80);
+}
+
+.reply-area form {
+    display: flex;
+    gap: 10px;
+}
+
+.reply-area input {
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.reply-area button {
+    padding: 10px 15px;
+    background-color: #57068c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Replies */
+.replies {
+    box-sizing: border-box;
+    width: 530px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+}
+
+.reply-card {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: rgb(85, 80, 80);
+    color: white;
+}
+
+.reply-card textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: rgb(64, 60, 60);
+    color: white;
+    border: 1px solid #777;
+    border-radius: 6px;
+    resize: vertical;
+}
+
+/* Buttons */
+.post-card button,
+.post-info button,
+.reply-card button,
+.reply-area button,
+.post-box button {
+    padding: 10px 15px;
+    margin-top: 8px;
+    background-color: #57068c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.post-card button:hover,
+.post-info button:hover,
+.reply-card button:hover,
+.reply-area button:hover,
+.post-box button:hover {
+    background-color: #7635a3;
+}
+
+/* Post editing forms on home and personal pages */
+.post-card form {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-card form input,
+.post-card form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #777;
+    border-radius: 6px;
+    background-color: rgb(64, 60, 60);
+    color: white;
+    font-size: 15px;
+}
+
+.post-card form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.post-card form button {
+    align-self: flex-start;
+}

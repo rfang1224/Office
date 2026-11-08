@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Post Details</title>
+        <link rel="stylesheet" href="/home.css">
+    </head>
+
+    <body>
+
+        <div class="post-info">
+
+            <div id="post-display-<%= post_id %>">
+                <h2><%= post_title %></h2>
+                <h3><%= post_username %></h3>
+                <p><%= post_content %></p>
+
+                <% if (user_id == post_owner_id) { %>
+                    <button onclick="editPost(this.dataset.id)" data-id="<%= post_id %>">Edit</button>
+                <% } %>
+            </div>
+
+            <form id="post-edit-<%= post_id %>"
+                  action="/edit-post/<%= post_id %>"
+                  method="POST"
+                  style="display: none;">
+
+                <input type="text" name="title" value="<%= post_title %>">
+                <textarea name="content"><%= post_content %></textarea>
+
+                <button type="submit">Save</button>
+                <button type="button" onclick="cancelPostEdit(this.dataset.id)" data-id="<%= post_id %>">Cancel</button>
+            </form>
+
+        </div>
+
+        <div class="reply-area">
+            <form action="/add-reply/<%= post_id %>" method="POST">
+                <input type="text" name="content" placeholder="Write a reply...">
+                <button type="submit">Reply</button>
+            </form>
+        </div>
+
+        <div class="replies">
+            <h2>Replies</h2>
+
+            <% replies.forEach(reply => { %>
+                <div class="reply-card">
+
+                    <div id="reply-display-<%= reply.reply_id %>">
+                        <h3><%= reply.username %></h3>
+                        <p><%= reply.content %></p>
+
+                        <% if (user_id == reply.user_id) { %>
+                            <button onclick="editReply(this.dataset.id)" data-id="<%= reply.reply_id %>">Edit</button>
+                        <% } %>
+                    </div>
+
+                    <form id="reply-edit-<%= reply.reply_id %>"
+                          action="/edit-reply/<%= reply.reply_id %>"
+                          method="POST"
+                          style="display: none;">
+
+                        <textarea name="content"><%= reply.content %></textarea>
+
+                        <button type="submit">Save</button>
+                        <button type="button" onclick="cancelReplyEdit(this.dataset.id)" data-id="<%= reply.reply_id %>">Cancel</button>
+                    </form>
+
+                </div>
+            <% }) %>
+        </div>
+
+        <script>
+            function editPost(id) {
+                document.getElementById(`post-display-${id}`).style.display = 'none';
+                document.getElementById(`post-edit-${id}`).style.display = 'block';
+            }
+
+            function cancelPostEdit(id) {
+                document.getElementById(`post-display-${id}`).style.display = 'block';
+                document.getElementById(`post-edit-${id}`).style.display = 'none';
+            }
+
+            function editReply(id) {
+                document.getElementById(`reply-display-${id}`).style.display = 'none';
+                document.getElementById(`reply-edit-${id}`).style.display = 'block';
+            }
+
+            function cancelReplyEdit(id) {
+                document.getElementById(`reply-display-${id}`).style.display = 'block';
+                document.getElementById(`reply-edit-${id}`).style.display = 'none';
+            }
+        </script>
+
+    </body>
+</html>

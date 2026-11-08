@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Office</title>
+        <link rel="stylesheet" href="/home.css">
+    </head>
+
+    <body>
+        <h1 class="white">Welcome back, <%= username %>!</h1>
+
+        <a href="/add-post" class="add-post-button">Add Post</a>
+
+        <form action="/search-personal" method="GET" class="search-form">
+            <input type="text" name="search" placeholder="Search posts or users...">
+        </form>
+
+        <div class="post-box">
+            <h2 class="white">Your posts</h2>
+
+            <% posts.forEach(post => { %>
+                <div class="post-card">
+
+                    <div id="post-display-<%= post.post_id %>">
+                        <h3><%= post.username %></h3>
+                        <h2><%= post.title %></h2>
+                        <p><%= post.content %></p>
+
+                        <a href="/post_info/<%= post.post_id %>">
+                            <button type="button">View Post</button>
+                        </a>
+
+                        <% if (userId == post.user_id) { %>
+                            <button onclick="editPost(this.dataset.id)" data-id="<%= post.post_id %>">Edit</button>
+                        <% } %>
+                    </div>
+
+                    <form id="post-edit-<%= post.post_id %>"
+                        action="/edit-post/<%= post.post_id %>"
+                        method="POST"
+                        style="display: none;">
+
+                        <input type="text" name="title" value="<%= post.title %>">
+                        <textarea name="content"><%= post.content %></textarea>
+
+                        <button type="submit">Save</button>
+                        <button type="button" onclick="cancelPostEdit(this.dataset.id)" data-id="<%= post.post_id %>">Cancel</button>
+                    </form>
+
+                </div>
+            <% }) %>
+        </div>
+
+        <script>
+            function editPost(id) {
+                document.getElementById(`post-display-${id}`).style.display = 'none';
+                document.getElementById(`post-edit-${id}`).style.display = 'block';
+            }
+
+            function cancelPostEdit(id) {
+                document.getElementById(`post-display-${id}`).style.display = 'block';
+                document.getElementById(`post-edit-${id}`).style.display = 'none';
+            }
+        </script>
+    </body>
+</html>
